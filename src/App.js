@@ -1,24 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { Container } from "postcss";
+import styled from "styled-components";
+import Modal from "./components/Modal"
+import { GlobalStyles } from './globalStyles';
+
+const Wrapper = styled.div`
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+const Button = styled.button`
+  min-width: 100px;
+  padding: 16px 32px;
+  border-radius: 4px;
+  border: none;
+  background: #141414;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+`
+
+
 
 function App() {
+  const [showModal, setShowModal] = useState(false)
+  
+  const showModalHandler = () => {
+    setShowModal(!showModal)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Wrapper>
+      <GlobalStyles />
+      <Button onClick={showModalHandler}>Open Modal</Button>
+      <Modal showModal={showModal} setShowModal={setShowModal} />
+    </Wrapper>
   );
 }
 
