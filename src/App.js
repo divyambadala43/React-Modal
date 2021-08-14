@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Container } from "postcss";
 import styled from "styled-components";
 import Modal from "./components/Modal"
 import { GlobalStyles } from './globalStyles';
